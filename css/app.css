@@ -1,0 +1,226 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #ffffff url('../img/geometry2.png'); 
+  font-family: 'Coda', cursive;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+#deck {
+  width: 45%;
+  background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+  padding: 2%;
+  border-radius: 10px;
+  box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 3em;
+}
+
+#deck .card {
+  transform: rotateY(0);
+  transition: transform .6s linear;
+
+  height: 125px;
+  width: 22%;
+  margin: 1.5%;
+  background: #2e3d49;
+  font-size: 0;
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+#deck .card.open {
+  background: #02b3e4;
+  cursor: default;
+}
+
+#deck .card.show {
+  font-size: 33px;
+}
+
+#deck .card.match {
+  cursor: default;
+  background: #02ccba;
+  font-size: 33px;
+}
+
+#deck .card.disabled {
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+
+
+.score-panel {
+  text-align: left;
+  width:400px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.score-panel .stars {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+  list-style: none;
+  display: inline-block;
+}
+
+.score-panel .timer {
+  padding-left: 8%;
+}
+
+.score-panel #restart {
+  float: right;
+  cursor: pointer;
+}
+
+
+.congrats-modal {
+  background: #ff2cfc;
+  border-radius: 20px;
+  width: 35%;
+  height: auto;
+  padding: 2%;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+.congrats-modal h2 {
+  font-size: 90%;
+  text-align: center;
+}
+
+.congrats-modal .content {
+  font-size: 1.2rem;
+  padding-bottom: 30px;
+}
+
+.congrats-modal li {
+  display: inline-block;
+}
+
+.congrats-modal .close-modal {
+  font-family: inherit;
+  color: #2fc52f;
+  background: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  padding: .5em;
+  width: 50%;
+}
+
+.show-modal {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+@media (max-width: 980px) {
+  #deck {
+  width: 70%;
+  min-height: 600px;
+  }
+
+  .congrats-modal {
+    top: 21%;
+    width: 30%;
+  }
+
+  .congrats-modal h2 {
+    font-size: 1.5rem;
+  }
+
+  .congrats-modal p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 720px) {
+  #deck {
+    min-height: 500px;
+  }
+
+  #deck .card {
+    height: 100px;
+  }
+}
+
+@media (max-width: 540px) {
+  #deck {
+    min-height: 400px;
+  }
+
+  #deck .card {
+    height: 80px;
+  }
+
+  .congrats-modal {
+    top: 15%;
+  }
+
+  .congrats-modal .close-modal {
+    width: 75%;
+  }
+}
+
+@media (max-width: 465px) {
+  .score-panel {
+    font-size: 0.8rem;
+    width: 80%;
+  }
+  
+  .score-panel .timer {
+    padding-left: 7%;
+  }
+
+  .congrats-modal {
+    width: 65%;
+    top: 19%;
+  }
+}
